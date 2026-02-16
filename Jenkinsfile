@@ -7,11 +7,14 @@ pipeline {
                 echo 'Building from Jenkinsfile'
             }
         }
+    }
 
-        stage('Test') {
-            steps {
-                echo 'Testing from Jenkinsfile'
-            }
+    post {
+        success {
+            echo 'Build Successful!'
+        }
+        failure {
+            echo 'Build Failed!'
         }
     }
 }
