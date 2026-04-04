@@ -1,1 +1,24 @@
+pipeline {
+    agent any
 
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/aishwaryasuresh020-source/midterm.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'javac demo.java'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'java demo'
+            }
+        }
+    }
+}
